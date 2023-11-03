@@ -4,17 +4,26 @@ const languageBtn = document.getElementById('languageBtn')
 const dolarBtn = document.getElementById('dolarBtn')
 
 dolarBtn.addEventListener('click', e => {
+  e.stopPropagation()
   if (languageDropdown.classList.contains('show')) {
     languageDropdown.classList.remove('show')
   }
-  console.log(e.target)
   moneyDropdown.classList.toggle('show')
 })
 
 languageBtn.addEventListener('click', e => {
+  e.stopPropagation()
   if (moneyDropdown.classList.contains('show')) {
     moneyDropdown.classList.remove('show')
   }
-  console.log(e.target)
   languageDropdown.classList.toggle('show')
+})
+
+window.addEventListener('click', () => {
+  if (languageDropdown.classList.contains('show')) {
+    languageDropdown.classList.remove('show')
+  }
+  if (moneyDropdown.classList.contains('show')) {
+    moneyDropdown.classList.remove('show')
+  }
 })
