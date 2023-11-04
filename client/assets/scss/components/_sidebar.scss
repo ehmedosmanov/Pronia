@@ -1,0 +1,134 @@
+.sidebar-nav {
+  color: #fff;
+  width: 350px;
+  height: 100%;
+  background: #333333;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  .sidebar-nav-top {
+    padding: 10px 20px;
+  }
+  .close-btn {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 0;
+  }
+
+  .sidebar-nav-content {
+    padding: 200px 0px;
+  }
+
+  .contact-phone {
+    background-color: $primary-color;
+    padding: 15px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    border-radius: 10px;
+    margin-right: 5px;
+  }
+  .contact-number {
+    color: #fff;
+    padding-left: 7px;
+    transition: all 0.3s;
+    &:hover {
+      transition: all 0.3s;
+      color: $primary-color;
+    }
+  }
+
+  .siderbar-nav-info {
+    .dropdown-container {
+      height: 48px;
+      .dropdown {
+        height: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .dropdown-btn {
+          outline: none;
+          border: none;
+          line-height: 47.5px;
+          background: none;
+          color: #fff;
+          font-size: 0.9rem;
+          i {
+            font-size: 12px;
+            display: inline-block;
+            margin-left: 2px;
+            vertical-align: 2px;
+          }
+        }
+        ul {
+          background-color: #fff;
+          padding: 15px 0;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+            rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+          position: absolute;
+          left: 0;
+          top: 0%;
+          transition: all 0.2s;
+          opacity: 0;
+          z-index: -1;
+
+          &.show {
+            transition: all 0.2s;
+            top: 100%;
+            visibility: visible;
+            opacity: 1;
+            z-index: 1;
+          }
+          a {
+            color: #000;
+            font-size: 0.9rem;
+            padding: 0.5rem 2rem;
+          }
+        }
+        .lang-dropdown {
+          left: 50%;
+        }
+      }
+    }
+  }
+
+  .mobile-nav {
+    padding-top: 25px;
+    .mobile-nav__item {
+      .mobile-nav__link {
+        padding: 0 15px;
+      }
+      padding-bottom: 25px;
+      .sub-menu {
+        visibility: hidden;
+        opacity: 0;
+        height: 0px;
+        transform: scaleY(0);
+        transition: all 0.3s;
+
+        li {
+          padding: 10px;
+        }
+
+        &.active {
+          visibility: visible;
+          opacity: 1;
+          position: relative;
+          height: 100px ;
+          background-color: rgba(255, 255, 255, 0.05);
+          margin: 20px 0 10px;
+        transform: scaleY(1);
+          transition: all 0.3s;
+          transform-origin: top center;
+        }
+      }
+    }
+    .mobile-nav__link {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+  }
+}

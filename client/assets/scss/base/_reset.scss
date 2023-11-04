@@ -11,6 +11,7 @@ body {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 img {
@@ -22,4 +23,10 @@ ol {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+
+::selection {
+  background-color: $primary-color;
+  color: #ffffff;
 }
