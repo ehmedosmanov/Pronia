@@ -1,0 +1,37 @@
+.section-title {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  .title-content {
+    h2 {
+      position: relative;
+      text-transform: uppercase;
+      color: #393939;
+      font-size: 36px;
+      padding-left: 100px;
+      padding-right: 100px;
+      font-weight: 700;
+      &::before {
+        content: '';
+        background-color: $primary-color;
+        width: 90px;
+        height: 3px;
+        position: absolute;
+        top: 50%;
+        left: 0;
+      }
+      &::after {
+        content: '';
+        background-color: $primary-color;
+        width: 90px;
+        height: 3px;
+        position: absolute;
+        top: 50%;
+        right: 0;
+      }
+    }
+  }
+}

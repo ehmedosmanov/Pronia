@@ -1,52 +1,208 @@
 #slider {
+  min-height: 100vh;
+  background-color: $bg-color;
+  .slider-content {
     min-height: 100vh;
-    background-color: $bg-color;
-    .slider-leftside {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        text-align: left;
-        min-height: 100vh;
-        .slider-title {
-            font-size: 5.6rem;
-        }
-        .slider-desc {
-            font-size: 1.4rem;
-            padding-bottom: 50px;
-        }
-        .offer {
-            font-size: 2.9rem;
-        }
+  }
+  .slider-leftside {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+    transition: all 0.2s;
+    .slider-title {
+      font-size: 5rem;
     }
-    .arrows {
-        position: absolute;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        left: 0;
-        min-height: 100vh;
-        button {
-            display: block;
-            padding: 20px;
-            border: none;
-            outline: none;
-            background-color: #fff;
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-        }
+    .slider-desc {
+      font-size: 1rem;
+      padding-bottom: 20px;
     }
+    .offer {
+      display: block;
+      font-size: 2rem;
+    }
+  }
+  .slider-rightside {
+    img {
+      transition: all 0.3s;
+    }
+  }
+  .arrows {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    left: 0;
+    button {
+      display: block;
+      padding: 15px;
+      border: none;
+      outline: none;
+      background-color: #fff;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    }
+  }
 }
 
 .overlay {
-    background: rgba(0,0,0,0.3);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    min-height: 100vh;
-    z-index: -111111;
-    display: none;
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: 100vh;
+  z-index: 1;
+  display: none;
 
-    &.active {
-        display: block;
+  &.active {
+    display: block;
+  }
+}
+
+#service {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  .service-item {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    padding: 25px 30px;
+    gap: 20px;
+    border: 1px dashed $primary-color;
+    h2 {
+      font-size: 20px;
     }
+  }
+}
+
+#products {
+  .categories {
+    padding: 50px 0;
+    .categories-items {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 50px;
+      .categories-link {
+        display: block;
+        border: 1px solid #ccc;
+        padding: 10px 25px;
+        border-radius: 4px;
+        transition: all 0.3s;
+      }
+      .categories-link.active {
+        border: 1px dashed $primary-color;
+        transition: all 0.3s;
+        color: $primary-color;
+      }
+      .categories-link:hover {
+        border: 1px dashed $primary-color;
+        transition: all 0.3s;
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+// Media Queries
+@media only screen and (max-width: 991px) {
+  #slider {
+    .slider-leftside {
+      align-items: center;
+      .slider-title {
+        font-size: 65px;
+      }
+      .slider-desc {
+        font-size: 18px;
+        padding-bottom: 20px;
+      }
+      .offer {
+        font-size: 30px;
+      }
+    }
+    .slider-rightside {
+      img {
+        width: 50%;
+      }
+    }
+    .arrows {
+      display: none;
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      left: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #slider {
+    min-height: 15vh;
+    .slider-content {
+      position: relative;
+      min-height: 0;
+      padding: 45px 0;
+    }
+    .slider-leftside {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-top: 15px;
+      .slider-title {
+        font-size: 45px;
+      }
+
+      .slider-desc {
+        font-size: 18px;
+        padding-bottom: 20px;
+      }
+      .offer {
+        font-size: 20px;
+      }
+    }
+    .slider-rightside {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .arrows {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      bottom: 15px;
+      gap: 25px;
+      button {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+        border: none;
+        outline: none;
+        width: 0;
+        height: 0;
+        padding: 7px;
+        background-color: $primary-color;
+        color: $primary-color;
+
+        &::before {
+          border-radius: 100%;
+          content: '';
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          border: 1px solid #abd373;
+          color: transparent;
+          opacity: 0;
+        }
+        &.active::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
 }

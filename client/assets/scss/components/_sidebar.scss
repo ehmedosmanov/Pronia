@@ -6,6 +6,7 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 2;
 
   .sidebar-nav-top {
     padding: 10px 20px;
@@ -17,7 +18,7 @@
   }
 
   .sidebar-nav-content {
-    padding: 200px 0px;
+    padding: 120px 0px;
   }
 
   .contact-phone {
@@ -98,13 +99,15 @@
     padding-top: 25px;
     .mobile-nav__item {
       .mobile-nav__link {
-        padding: 0 15px;
+        padding: 5px 15px;
       }
-      padding-bottom: 25px;
+      padding: 15px 0;
       .sub-menu {
+        background-color: rgba(255, 255, 255, 0.05);
+        overflow-y: auto;
         visibility: hidden;
         opacity: 0;
-        height: 0px;
+        height: 0;
         transform: scaleY(0);
         transition: all 0.3s;
 
@@ -116,12 +119,12 @@
           visibility: visible;
           opacity: 1;
           position: relative;
-          height: 100px ;
+          height: auto;
           background-color: rgba(255, 255, 255, 0.05);
-          margin: 20px 0 10px;
-        transform: scaleY(1);
+          transform: scaleY(1);
           transition: all 0.3s;
           transform-origin: top center;
+          overflow: hidden;
         }
       }
     }
@@ -129,6 +132,51 @@
       display: flex;
       justify-content: space-between;
       gap: 20px;
+    }
+  }
+}
+
+.bascet-sidebar {
+  color: #333;
+  width: 500px;
+  height: 100%;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  .bascet-sidebar-content {
+    padding: 55px 60px;
+    .bascet-sidebar-header {
+      @include flex-between;
+      h4 {
+        font-size: 25px;
+      }
+    }
+    .bascet-products {
+      margin-top: 40px;
+    }
+    .bascet-product {
+      position: relative;
+      border-bottom: 1px solid #4444442d;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 45px;
+      .img-link {
+        width: 25%;
+      }
+      .remove-btn {
+        top: 10px;
+        font-size: 10px;
+        right: 0;
+        position: absolute;
+      }
+      .bascet-product-content {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
     }
   }
 }
