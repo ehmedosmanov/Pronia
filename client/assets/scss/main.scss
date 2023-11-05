@@ -1,17 +1,22 @@
+//Abstracts
 @import './abstracts/helpers';
 @import './abstracts/mixins';
 @import './abstracts/variables';
 
+//Base
 @import './base/reset';
 
+//Components
 @import './components/buttons';
 @import './components/cards';
 @import './components/buttons';
 @import './components/sidebar';
 @import './components/title';
 
+//Pages
 @import './layout/footer';
 @import './layout/header';
 @import './layout/navbar';
 
+//Home
 @import './pages/home';

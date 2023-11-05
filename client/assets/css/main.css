@@ -239,26 +239,24 @@ ol {
 }
 .sidebar-nav .mobile-nav .mobile-nav__item .sub-menu {
   background-color: rgba(255, 255, 255, 0.05);
-  overflow-y: auto;
+  overflow: hidden;
   visibility: hidden;
   opacity: 0;
-  height: 0;
+  max-height: 0;
+  transition: all 0.3s ease;
   transform: scaleY(0);
-  transition: all 0.3s;
 }
 .sidebar-nav .mobile-nav .mobile-nav__item .sub-menu li {
-  padding: 10px;
+  padding: 18px 14px;
 }
 .sidebar-nav .mobile-nav .mobile-nav__item .sub-menu.active {
   visibility: visible;
   opacity: 1;
-  position: relative;
-  height: auto;
-  background-color: rgba(255, 255, 255, 0.05);
-  transform: scaleY(1);
-  transition: all 0.3s;
-  transform-origin: top center;
+  max-height: 500px;
+  transition: all 0.3s ease;
   overflow: hidden;
+  transform: scaleY(1);
+  transform-origin: top center;
 }
 .sidebar-nav .mobile-nav .mobile-nav__link {
   display: flex;
@@ -268,21 +266,23 @@ ol {
 
 .bascet-sidebar {
   color: #333;
-  width: 500px;
+  max-width: 530px;
   height: 100%;
   background: #fff;
   position: fixed;
   top: 0;
-  right: 0;
+  right: -525px;
   z-index: 2;
+  transition: all 0.3s;
 }
 .bascet-sidebar .bascet-sidebar-content {
-  padding: 55px 60px;
+  padding: 55px 25px;
 }
 .bascet-sidebar .bascet-sidebar-content .bascet-sidebar-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px;
 }
 .bascet-sidebar .bascet-sidebar-content .bascet-sidebar-header h4 {
   font-size: 25px;
@@ -296,10 +296,10 @@ ol {
   padding: 15px;
   display: flex;
   align-items: center;
-  margin-bottom: 45px;
+  margin-bottom: 18px;
 }
 .bascet-sidebar .bascet-sidebar-content .bascet-product .img-link {
-  width: 25%;
+  width: 20%;
 }
 .bascet-sidebar .bascet-sidebar-content .bascet-product .remove-btn {
   top: 10px;
@@ -310,7 +310,31 @@ ol {
 .bascet-sidebar .bascet-sidebar-content .bascet-product .bascet-product-content {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 10px;
+}
+.bascet-sidebar .bascet-sidebar-content .bascet-product .bascet-counter .count-btn {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: none;
+  padding: 15px;
+  font-size: 18px;
+}
+.bascet-sidebar .bascet-sidebar-content .bascet-product .bascet-counter span {
+  font-size: 18px;
+}
+.bascet-sidebar .bascet-sidebar-content .bascet-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bascet-sidebar.active {
+  right: 0;
+  transition: all 0.3s;
 }
 
 .section-title {

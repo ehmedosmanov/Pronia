@@ -7,10 +7,10 @@ const closeBtn = document.getElementById('closeBtn')
 
 mobileNavBtn.forEach((item, index) => {
   item.addEventListener('click', e => {
-    subMenuDropDown[index].classList.toggle('active')
-
     subMenuDropDown.forEach((element, i) => {
-      if (index !== i) {
+      if (index === i) {
+        subMenuDropDown[i].classList.toggle('active')
+      } else {
         subMenuDropDown[i].classList.remove('active')
       }
     })

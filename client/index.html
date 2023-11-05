@@ -280,61 +280,23 @@ https://cdn.jsdelivr.net/npm/atropos@2.0.2/atropos.min.css
           </div>
         </div>
       </div>
-      <div class="bascet-sidebar">
+      <!-- Bascet -->
+      <div class="bascet-sidebar overflow-auto">
         <div class="bascet-sidebar-content">
-          <div class="bascet-sidebar-header pb-5">
-            <h4>Shopping Cart</h4>
-            <a href="#" class="button-close">
+          <div class="bascet-sidebar-header">
+            <h4 class="me-4">Shopping Cart</h4>
+            <a href="#" class="button-close mb-2">
               <i class="fa-solid fa-x"></i>
             </a>
           </div>
-          <div class="bascet-products">
-            <div class="bascet-product">
-              <a href="#" class="remove-btn">
-                <i class="fa-solid fa-x"></i>
-              </a>
-              <a href="#" class="img-link">
-                <img
-                  src="https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-1-270x300.jpg"
-                  alt="" />
-              </a>
-              <div class="bascet-product-content">
-                <a href="#" class="product-item">American Marigold</a>
-                <span class="product-cost">1 x $23.45</span>
-              </div>
-            </div>
-            <div class="bascet-product">
-              <a href="#" class="remove-btn">
-                <i class="fa-solid fa-x"></i>
-              </a>
-              <a href="#" class="img-link">
-                <img
-                  src="https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-1-270x300.jpg"
-                  alt="" />
-              </a>
-              <div class="bascet-product-content">
-                <a href="#" class="product-item">American Marigold</a>
-                <span class="product-cost">1 x $23.45</span>
-              </div>
-            </div>
-            <div class="bascet-product">
-              <a href="#" class="remove-btn">
-                <i class="fa-solid fa-x"></i>
-              </a>
-              <a href="#" class="img-link">
-                <img
-                  src="https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-1-270x300.jpg"
-                  alt="" />
-              </a>
-              <div class="bascet-product-content">
-                <a href="#" class="product-item">American Marigold</a>
-                <span class="product-cost">1 x $23.45</span>
-              </div>
-            </div>
+          <div class="bascet-products" id="bascet-container"></div>
+          <div class="bascet-total">
+            <span>Subtotal</span>
+            <span class="amount">0</span>
           </div>
         </div>
       </div>
-
+      <!-- Sidebar -->
       <div class="sidebar-nav d-none">
         <div class="sidebar-nav-content">
           <div class="sidebar-nav-top">
@@ -446,12 +408,36 @@ https://cdn.jsdelivr.net/npm/atropos@2.0.2/atropos.min.css
                 <a href="#" class="mobile-nav__link">
                   <span>Blog</span>
                   <i class="fa-solid fa-chevron-down"></i>
+                  <ul class="sub-menu">
+                    <li>
+                      <a href="#">
+                        <span>Shop Layout</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span>Shop Layout</span>
+                      </a>
+                    </li>
+                  </ul>
                 </a>
               </li>
               <li class="mobile-nav__item">
                 <a href="#" class="mobile-nav__link">
                   <span>ABOUT US</span>
                   <i class="fa-solid fa-chevron-down"></i>
+                  <ul class="sub-menu">
+                    <li>
+                      <a href="#">
+                        <span>Shop Layout</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span>Shop Layout</span>
+                      </a>
+                    </li>
+                  </ul>
                 </a>
               </li>
             </ul>
@@ -548,7 +534,6 @@ https://cdn.jsdelivr.net/npm/atropos@2.0.2/atropos.min.css
         </div>
       </section>
       <!-- Service End -->
-
       <section id="products">
         <div class="section-title">
           <div class="title-content">
@@ -594,7 +579,7 @@ https://cdn.jsdelivr.net/npm/atropos@2.0.2/atropos.min.js
     <script src="./assets/js/infoDropdowns.js"></script>
     <script src="./assets/js/mobileNavDropdown.js"></script>
     <script src="./assets/js/sliderHero.js"></script>
-    <script src="./assets/js/productCards.js"></script>
+    <script src="./assets/js/bascet.js"></script>
     <script src="./assets/js/main.js"></script>
   </body>
 </html>
