@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Doublefile Viburnum",
-      "price": "$67.45",
+      "price": "67.45",
       "images": [
         "https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-1-270x300.jpg",
         "https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-2-270x300.jpg"
@@ -25,7 +25,7 @@
     {
       "id": 3,
       "name": "Black Eyed Susan",
-      "price": "$41.00",
+      "price": "41.00",
       "images": [
         "https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-9-270x300.jpg",
         "https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-10-270x300.jpg"
@@ -36,7 +36,7 @@
     {
       "id": 4,
       "name": "Bleeding Heart",
-      "price": "$30.45",
+      "price": "30.45",
       "images": [
         "https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-1-270x300.jpg",
         "https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-2-270x300.jpg"
@@ -47,7 +47,7 @@
     {
       "id": 5,
       "name": "American Marigold",
-      "price": "$10.45",
+      "price": "10.45",
       "images": [
         "https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-1-270x300.jpg",
         "https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-2-270x300.jpg"
@@ -58,7 +58,7 @@
     {
       "id": 6,
       "name": "Bleeding Heart",
-      "price": "$10.45",
+      "price": "10.45",
       "images": [
         "https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-1-270x300.jpg",
         "https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-2-270x300.jpg"
@@ -69,7 +69,7 @@
     {
       "id": 7,
       "name": "Black Eyed Susan",
-      "price": "$10.45",
+      "price": "10.45",
       "images": [
         "https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-1-270x300.jpg",
         "https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-2-270x300.jpg"
@@ -80,7 +80,7 @@
     {
       "id": 8,
       "name": "Bleeding Heart",
-      "price": "$10.45",
+      "price": "10.45",
       "images": [
         "https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-1-270x300.jpg",
         "https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-6-270x300.jpg"
