@@ -136,21 +136,20 @@
 
 .bascet-sidebar {
   color: #333;
-  max-width: 530px;
+  width: 420px;
   height: 100%;
   background: #fff;
   position: fixed;
   top: 0;
   right: -525px;
   z-index: 2;
-  transition: all 0.3s;
+  transition: all 0.5s ease;
   .bascet-sidebar-content {
     padding: 55px 25px;
     .bascet-sidebar-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px;
       h4 {
         font-size: 25px;
       }
@@ -205,6 +204,6 @@
   }
   &.active {
     right: 0;
-    transition: all 0.3s;
+    transition: all 0.5s ease;
   }
 }

@@ -1,3 +1,4 @@
+// Slider
 #slider {
   min-height: 100vh;
   background-color: $bg-color;
@@ -45,6 +46,7 @@
   }
 }
 
+//Overlay
 .overlay {
   background: rgba(0, 0, 0, 0.3);
   position: fixed;
@@ -60,6 +62,7 @@
   }
 }
 
+//Service
 #service {
   padding-top: 100px;
   padding-bottom: 100px;
@@ -76,6 +79,7 @@
   }
 }
 
+//Products
 #products {
   .categories {
     padding: 50px 0;
@@ -106,7 +110,157 @@
   }
 }
 
-// Media Queries
+//Banners
+#banners {
+  padding: 90px 0;
+  .banner {
+    position: relative;
+    .banner-img {
+      img {
+        width: 100%;
+      }
+    }
+    .banner-content {
+      position: absolute;
+      top: 50px;
+      left: 70px;
+
+      .banner-title {
+        font-size: 36px;
+        margin: 25px 0;
+      }
+      a {
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+//Say Client
+#say-client {
+  background-image: url(https://htmldemo.net/pronia/pronia/assets/images/testimonial/bg/1-1-1820x443.jpg);
+  @include bg-img-size;
+  .section-title {
+    padding-top: 120px;
+  }
+
+  .user-item {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 40px 50px;
+    position: relative;
+    max-width: 500px;
+    border-radius: 20px;
+    .comment {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      img {
+        background-color: #abd373;
+        border-radius: 24px 0px 0px 33px;
+        padding: 30px;
+        color: #fff;
+      }
+    }
+    .user-name {
+      h4 {
+        padding: 10px 0;
+      }
+    }
+  }
+}
+
+//Company
+#company {
+  padding: 50px 0;
+  .company-content {
+    background-image: url(https://htmldemo.net/pronia/pronia/assets/images/brand/bg/1-1170x300.jpg);
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    padding: 90px;
+
+    .swiper-slide {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+//Blog
+#blog {
+  .swiper-slide {
+    width: 2000px;
+  }
+  .blog-item {
+    background-color: #f6f7fb;
+    padding: 35px 30px 40px 30px;
+    border-radius: 10px;
+    .blog-link {
+      font-size: 20px;
+      font-weight: 700;
+      padding: 20px 0;
+    }
+    .blog-title {
+      p {
+        margin-top: 15px;
+        margin-bottom: 40px;
+      }
+    }
+    .blog-img {
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.scroll-top {
+  position: fixed;
+  bottom: 8px;
+  right: 8px;
+  border-radius: 10px;
+  width: 45px;
+  height: 45px;
+  background-color: #000;
+  color: #fff;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+//Media Queries
+@media only screen and (max-width: 1200px) {
+  #banners {
+    padding: 90px 0;
+    .banner {
+      position: relative;
+      .banner-img {
+        img {
+          width: 100%;
+        }
+      }
+      .banner-content {
+        position: absolute;
+        top: 50px;
+        left: 70px;
+
+        .banner-title {
+          font-size: 20px;
+          margin: 20px 0;
+        }
+        a {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 991px) {
   #slider {
     .slider-leftside {
@@ -134,6 +288,31 @@
       justify-content: space-between;
       align-items: center;
       left: 0;
+    }
+  }
+
+  #banners {
+    padding: 90px 0;
+    .banner {
+      position: relative;
+      .banner-img {
+        img {
+          width: 100%;
+        }
+      }
+      .banner-content {
+        position: absolute;
+        top: 50px;
+        left: 70px;
+
+        .banner-title {
+          font-size: 25px;
+          margin: 20px 0;
+        }
+        a {
+          max-width: 100%;
+        }
+      }
     }
   }
 }
@@ -201,6 +380,27 @@
         }
         &.active::before {
           opacity: 1;
+        }
+      }
+    }
+  }
+
+  #banners {
+    .banner {
+      position: relative;
+      .banner-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        .banner-title {
+          text-align: center;
+          font-size: 30px;
+          margin: 10px 0;
         }
       }
     }

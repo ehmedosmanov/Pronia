@@ -19,7 +19,6 @@ async function getProducts() {
     const response = await axios('http://localhost:3000/products')
     const data = response.data
     createProduct(data)
-    createBascetProduct(bascetArr)
   } catch (error) {
     console.log(error)
   }
@@ -76,10 +75,10 @@ function createProductCard(product) {
       count: 1
     })
 
+    bascetCount.textContent = parseInt(bascetCount.textContent) + 1
+
     setLocalStorage('bascetArr', bascetArr)
     generateBascetCards()
-
-    bascetCount.textContent = parseInt(bascetCount.textContent) + 1
   })
 
   return card
@@ -92,7 +91,6 @@ tabsLink.forEach(tab => {
     const category = tab.getAttribute('data-category')
     console.log(category)
     const cardsCategory = document.querySelectorAll('.card-category')
-    // const addToBasket = cardsCategory.querySelectorAll('.add-bascet-btn')
     cardsCategory.forEach(product => {
       //console.log(product)
       const productCategory = product.getAttribute('data-category')
@@ -118,7 +116,7 @@ function getRating(stars) {
 function createProduct(data) {
   data.forEach(product => {
     const productCard = createProductCard(product)
-    productsContainer.appendChild(productCard)
+    productsContainer.append(productCard)
   })
 }
 
@@ -153,10 +151,9 @@ function createBascetProduct(bascetArrLoc) {
     removeBtn.addEventListener('click', e => {
       e.preventDefault()
       bascetArr = bascetArr.filter(x => x.id !== product.id)
+      bascetCount.textContent = parseInt(bascetCount.textContent) - 1
       setLocalStorage('bascetArr', bascetArr)
       generateBascetCards()
-
-      bascetCount.textContent = parseInt(bascetCount.textContent) - 1
     })
 
     bascetContainer.append(productDiv)
@@ -167,7 +164,7 @@ function createBascetProduct(bascetArrLoc) {
 function increaseCount(productId) {
   const product = bascetArr.find(x => x.id === productId)
   if (product) {
-    let countIncrease = product.count++
+    product.count++
     setLocalStorage('bascetArr', bascetArr)
     generateBascetCards()
   }

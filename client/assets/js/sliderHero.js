@@ -21,6 +21,8 @@ document.body.addEventListener('mousemove', event => {
 //Slider
 function changeImage() {
   sliderImg.style.opacity = 0
+  sliderImg.style.position = 'relative'
+
   leftSide.style.opacity = 0
   setTimeout(() => {
     leftSide.style.opacity = 1

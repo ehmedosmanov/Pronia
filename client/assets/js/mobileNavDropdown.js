@@ -1,3 +1,4 @@
+//Mobile Nav Dropdowns
 const mobileNavBtn = document.querySelectorAll('.mobile-nav__link')
 const subMenuDropDown = document.querySelectorAll('.sub-menu')
 const barBtn = document.getElementById('nav-menu')

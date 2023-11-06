@@ -48,6 +48,14 @@ ol {
   color: #fff;
 }
 
+.swiper-button-prev {
+  display: none;
+}
+
+.swiper-button-next {
+  display: none;
+}
+
 .product-items .card-category {
   display: flex;
   justify-content: center;
@@ -137,6 +145,14 @@ ol {
   transition: all 0.4s;
   background-color: #525252;
   color: #fff;
+}
+
+.swiper-button-prev {
+  display: none;
+}
+
+.swiper-button-next {
+  display: none;
 }
 
 .sidebar-nav {
@@ -266,14 +282,14 @@ ol {
 
 .bascet-sidebar {
   color: #333;
-  max-width: 530px;
+  width: 420px;
   height: 100%;
   background: #fff;
   position: fixed;
   top: 0;
   right: -525px;
   z-index: 2;
-  transition: all 0.3s;
+  transition: all 0.5s ease;
 }
 .bascet-sidebar .bascet-sidebar-content {
   padding: 55px 25px;
@@ -282,7 +298,6 @@ ol {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
 }
 .bascet-sidebar .bascet-sidebar-content .bascet-sidebar-header h4 {
   font-size: 25px;
@@ -334,7 +349,7 @@ ol {
 }
 .bascet-sidebar.active {
   right: 0;
-  transition: all 0.3s;
+  transition: all 0.5s ease;
 }
 
 .section-title {
@@ -346,31 +361,89 @@ ol {
   align-items: center;
 }
 .section-title .title-content h2 {
-  position: relative;
   text-transform: uppercase;
+  position: relative;
   color: #393939;
   font-size: 36px;
-  padding-left: 100px;
-  padding-right: 100px;
+  line-height: 27px;
+  padding-left: 90px;
+  padding-right: 90px;
   font-weight: 700;
+  margin-bottom: 30px;
 }
 .section-title .title-content h2::before {
-  content: "";
   background-color: #abd373;
-  width: 90px;
-  height: 3px;
+  width: 70px;
+  height: 2px;
   position: absolute;
+  content: "";
   top: 50%;
   left: 0;
 }
 .section-title .title-content h2::after {
-  content: "";
   background-color: #abd373;
-  width: 90px;
-  height: 3px;
+  width: 70px;
+  height: 2px;
   position: absolute;
+  content: "";
   top: 50%;
+  left: auto;
   right: 0;
+}
+
+@media only screen and (max-width: 767px) {
+  .section-title .title-content h2::before {
+    display: none;
+  }
+  .section-title .title-content h2::after {
+    display: none;
+  }
+}
+#footer {
+  background-image: url(https://htmldemo.net/pronia/pronia/assets/images/footer/bg/1-1920x465.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+#footer .footer-top {
+  padding-bottom: 60px;
+  padding-top: 100px;
+  border-bottom: 1px solid #ccc;
+}
+#footer .footer-top .footer-item .footer-widget .footer-logo {
+  padding-bottom: 40px;
+}
+#footer .footer-top .footer-item .footer-widget .footer-text {
+  margin-bottom: 40px;
+}
+#footer .footer-top .footer-item .footer-widget .icons-item {
+  display: flex;
+}
+#footer .footer-top .footer-item .footer-widget .icons-item .icon-item {
+  padding-right: 20px;
+}
+#footer .footer-top .footer-item .footer-widget .icons-item .icon-item a {
+  border: 1px solid #000;
+  width: 35px;
+  height: 35px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+#footer .footer-top .footer-item .footer-widget .icons-item .icon-item a:hover {
+  background-color: #abd373;
+  transition: all 0.3s ease;
+  color: #fff;
+  border: none;
+}
+#footer .footer-top .footer-items li {
+  padding-bottom: 5px;
+}
+#footer .footer-bottom {
+  text-align: center;
+  padding: 20px 0;
+  color: #8dba87;
 }
 
 #header .top-header {
@@ -492,6 +565,7 @@ ol {
   position: absolute;
   background-color: #abd373;
 }
+
 #header .bottom-header {
   border-top: 1px solid #ccc;
 }
@@ -503,11 +577,13 @@ ol {
 }
 #header .bottom-header nav .nav-items .nav-item .dropdown {
   position: absolute;
+  z-index: 1;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
   padding: 15px 75px 15px 15px;
   text-align: left;
   opacity: 0;
   visibility: hidden;
+  background: #fff;
   transform: scaleY(0);
   transition: all 0.4s;
 }
@@ -562,6 +638,7 @@ ol {
   transform: scaleY(0);
   transform-origin: top center;
   transition: all 0.4s;
+  z-index: 2;
 }
 #header .bottom-header nav .nav-items .shop .multi-dropdown .multi-dropdown-items {
   font-size: 14px;
@@ -698,6 +775,136 @@ ol {
   color: #abd373;
 }
 
+#banners {
+  padding: 90px 0;
+}
+#banners .banner {
+  position: relative;
+}
+#banners .banner .banner-img img {
+  width: 100%;
+}
+#banners .banner .banner-content {
+  position: absolute;
+  top: 50px;
+  left: 70px;
+}
+#banners .banner .banner-content .banner-title {
+  font-size: 36px;
+  margin: 25px 0;
+}
+#banners .banner .banner-content a {
+  max-width: 100%;
+}
+
+#say-client {
+  background-image: url(https://htmldemo.net/pronia/pronia/assets/images/testimonial/bg/1-1-1820x443.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+#say-client .section-title {
+  padding-top: 120px;
+}
+#say-client .user-item {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 40px 50px;
+  position: relative;
+  max-width: 500px;
+  border-radius: 20px;
+}
+#say-client .user-item .comment {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+#say-client .user-item .comment img {
+  background-color: #abd373;
+  border-radius: 24px 0px 0px 33px;
+  padding: 30px;
+  color: #fff;
+}
+#say-client .user-item .user-name h4 {
+  padding: 10px 0;
+}
+
+#company {
+  padding: 50px 0;
+}
+#company .company-content {
+  background-image: url(https://htmldemo.net/pronia/pronia/assets/images/brand/bg/1-1170x300.jpg);
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  padding: 90px;
+}
+#company .company-content .swiper-slide {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#company .company-content .swiper-slide img {
+  cursor: pointer;
+}
+
+#blog .swiper-slide {
+  width: 2000px;
+}
+#blog .blog-item {
+  background-color: #f6f7fb;
+  padding: 35px 30px 40px 30px;
+  border-radius: 10px;
+}
+#blog .blog-item .blog-link {
+  font-size: 20px;
+  font-weight: 700;
+  padding: 20px 0;
+}
+#blog .blog-item .blog-title p {
+  margin-top: 15px;
+  margin-bottom: 40px;
+}
+#blog .blog-item .blog-img img {
+  width: 100%;
+}
+
+.scroll-top {
+  position: fixed;
+  bottom: 8px;
+  right: 8px;
+  border-radius: 10px;
+  width: 45px;
+  height: 45px;
+  background-color: #000;
+  color: #fff;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1200px) {
+  #banners {
+    padding: 90px 0;
+  }
+  #banners .banner {
+    position: relative;
+  }
+  #banners .banner .banner-img img {
+    width: 100%;
+  }
+  #banners .banner .banner-content {
+    position: absolute;
+    top: 50px;
+    left: 70px;
+  }
+  #banners .banner .banner-content .banner-title {
+    font-size: 20px;
+    margin: 20px 0;
+  }
+  #banners .banner .banner-content a {
+    max-width: 100%;
+  }
+}
 @media only screen and (max-width: 991px) {
   #slider .slider-leftside {
     align-items: center;
@@ -722,6 +929,27 @@ ol {
     justify-content: space-between;
     align-items: center;
     left: 0;
+  }
+  #banners {
+    padding: 90px 0;
+  }
+  #banners .banner {
+    position: relative;
+  }
+  #banners .banner .banner-img img {
+    width: 100%;
+  }
+  #banners .banner .banner-content {
+    position: absolute;
+    top: 50px;
+    left: 70px;
+  }
+  #banners .banner .banner-content .banner-title {
+    font-size: 25px;
+    margin: 20px 0;
+  }
+  #banners .banner .banner-content a {
+    max-width: 100%;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -788,5 +1016,22 @@ ol {
   }
   #slider .arrows button.active::before {
     opacity: 1;
+  }
+  #banners .banner {
+    position: relative;
+  }
+  #banners .banner .banner-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #banners .banner .banner-content .banner-title {
+    text-align: center;
+    font-size: 30px;
+    margin: 10px 0;
   }
 }/*# sourceMappingURL=main.css.map */
