@@ -9,7 +9,8 @@
         "https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-2-270x300.jpg"
       ],
       "category": "bestseller",
-      "stars": 5
+      "stars": 5,
+      "isNew": true
     },
     {
       "id": 2,
@@ -20,7 +21,8 @@
         "https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-4-270x300.jpg"
       ],
       "category": "featured",
-      "stars": 2
+      "stars": 2,
+      "isNew": true
     },
     {
       "id": 3,
@@ -31,7 +33,8 @@
         "https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-10-270x300.jpg"
       ],
       "category": "latest",
-      "stars": 5
+      "stars": 5,
+      "isNew": true
     },
     {
       "id": 4,
@@ -42,7 +45,8 @@
         "https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-2-270x300.jpg"
       ],
       "category": "bestseller",
-      "stars": 3
+      "stars": 3,
+      "isNew": false
     },
     {
       "id": 5,
@@ -53,7 +57,8 @@
         "https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-2-270x300.jpg"
       ],
       "category": "bestseller",
-      "stars": 3
+      "stars": 3,
+      "isNew": false
     },
     {
       "id": 6,
@@ -64,7 +69,8 @@
         "https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-2-270x300.jpg"
       ],
       "category": "bestseller",
-      "stars": 5
+      "stars": 5,
+      "isNew": false
     },
     {
       "id": 7,
@@ -75,7 +81,8 @@
         "https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-2-270x300.jpg"
       ],
       "category": "bestseller",
-      "stars": 4
+      "stars": 4,
+      "isNew": false
     },
     {
       "id": 8,
@@ -86,7 +93,8 @@
         "https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-6-270x300.jpg"
       ],
       "category": "bestseller",
-      "stars": 5
+      "stars": 5,
+      "isNew": true
     }
   ]
 }

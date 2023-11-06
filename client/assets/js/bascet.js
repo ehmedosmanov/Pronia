@@ -1,7 +1,7 @@
 const tabsLink = document.querySelectorAll('.categories-item')
 const productsContainer = document.getElementById('products-container')
 const subTotal = document.querySelector('.amount')
-const bascetCount = document.querySelector('.count')
+const bascetCountQuantity = document.querySelector('.count')
 let bascetArr = getLocalStorage('bascetArr') || []
 
 //Function save data to LocalStorage
@@ -23,6 +23,9 @@ async function getProducts() {
     console.log(error)
   }
 }
+
+let localeLength =  getLocalStorage('bascetArr').length 
+bascetCountQuantity.textContent = localeLength
 
 //Create Product Card
 function createProductCard(product) {
@@ -72,12 +75,15 @@ function createProductCard(product) {
       name: product.name,
       price: product.price,
       image: product.images[0],
-      count: 1
+      count: 1,
     })
 
-    bascetCount.textContent = parseInt(bascetCount.textContent) + 1
+  
 
     setLocalStorage('bascetArr', bascetArr)
+
+    let localeLength =  getLocalStorage('bascetArr').length 
+    bascetCountQuantity.textContent = localeLength
     generateBascetCards()
   })
 
@@ -120,6 +126,8 @@ function createProduct(data) {
   })
 }
 
+
+
 //Create Bascet Cards
 function createBascetProduct(bascetArrLoc) {
   const bascetContainer = document.querySelector('.bascet-products')
@@ -127,7 +135,7 @@ function createBascetProduct(bascetArrLoc) {
   bascetArrLoc.forEach(product => {
     const productDiv = document.createElement('div')
     productDiv.classList.add('bascet-product')
-    const totalPrice = Math.floor(product.price * product.count)
+    const totalPrice = (product.price * product.count).toFixed(2)
 
     productDiv.innerHTML = `
       <a href="#" class="remove-btn">
@@ -151,7 +159,8 @@ function createBascetProduct(bascetArrLoc) {
     removeBtn.addEventListener('click', e => {
       e.preventDefault()
       bascetArr = bascetArr.filter(x => x.id !== product.id)
-      bascetCount.textContent = parseInt(bascetCount.textContent) - 1
+
+      bascetCountQuantity.textContent = parseInt(bascetCountQuantity.textContent) - 1
       setLocalStorage('bascetArr', bascetArr)
       generateBascetCards()
     })
@@ -159,6 +168,7 @@ function createBascetProduct(bascetArrLoc) {
     bascetContainer.append(productDiv)
   })
 }
+
 
 //Increase Price
 function increaseCount(productId) {
@@ -190,7 +200,7 @@ function subTotalCalc(bascetArr) {
   bascetArr.forEach(product => {
     total += product.price * product.count
   })
-  subTotal.textContent = Math.floor(total)
+  subTotal.textContent = total.toFixed(2)
 }
 
 //Generae Bascet
