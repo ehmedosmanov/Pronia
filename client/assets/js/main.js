@@ -16,25 +16,26 @@ bascetBtn.addEventListener('click', e => {
 
 //Sliders
 var swiper = new Swiper('.swiper-container', {
-  slidesPerView: 3,
+  slidesPerView: 4,
   spaceBetween: 30,
+  loop: false,
   pagination: {
     el: '.swiper-pagination',
     clickable: true
   },
   breakpoints: {
-    1240: {
+    1200: {
       slidesPerView: 3
     },
-    839: {
+    992: {
+      slidesPerView: 2
+    },
+    768: {
       slidesPerView: 2
     },
     300: {
       slidesPerView: 1
     }
-  },
-  autoplay: {
-    delay: 2000
   }
 })
 
@@ -51,16 +52,16 @@ var swiper = new Swiper('.swiper-second', {
   },
   loopedSlides: 4,
   breakpoints: {
-    300: {
-      slidesPerView: 2,
+    992: {
+      slidesPerView: 4,
       spaceBetween: 20
     },
     768: {
       slidesPerView: 3,
       spaceBetween: 40
     },
-    992: {
-      slidesPerView: 4,
+    300: {
+      slidesPerView: 1,
       spaceBetween: 50
     }
   }
@@ -75,10 +76,37 @@ var swiper = new Swiper('.swiper-third', {
     prevEl: '.swiper-button-prev'
   },
   breakpoints: {
-    1240: {
+    992: {
       slidesPerView: 3
     },
-    839: {
+    768: {
+      slidesPerView: 2
+    },
+    300: {
+      slidesPerView: 1
+    }
+  },
+  autoplay: {
+    delay: 2000
+  }
+})
+
+var swiper = new Swiper('.product-swiper', {
+  slidesPerView: 4,
+  spaceBetween: 30,
+  loop: true,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  breakpoints: {
+    1200: {
+      slidesPerView: 4
+    },
+    992: {
+      slidesPerView: 3
+    },
+    768: {
       slidesPerView: 2
     },
     300: {

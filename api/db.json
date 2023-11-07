@@ -95,6 +95,30 @@
       "category": "bestseller",
       "stars": 5,
       "isNew": true
+    },
+    {
+      "id": 9,
+      "name": "Bleeding Heart",
+      "price": "30.45",
+      "images": [
+        "https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-1-270x300.jpg",
+        "https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-6-270x300.jpg"
+      ],
+      "category": "bestseller",
+      "stars": 3,
+      "isNew": true
+    },
+    {
+      "id": 10,
+      "name": "Black Eyed Susan",
+      "price": "50.45",
+      "images": [
+        "https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-1-270x300.jpg",
+        "https://htmldemo.net/pronia/pronia/assets/images/product/medium-size/1-6-270x300.jpg"
+      ],
+      "category": "latest",
+      "stars": 3,
+      "isNew": true
     }
   ]
 }

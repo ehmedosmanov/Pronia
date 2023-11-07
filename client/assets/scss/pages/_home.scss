@@ -143,21 +143,30 @@
   .section-title {
     padding-top: 120px;
   }
-
+  .swiper-pagination {
+    position: relative;
+    padding-top: 60px;
+  }
+  .swiper-pagination-bullet {
+    padding: 5px;
+    &.swiper-pagination-bullet-active {
+      background-color: $primary-color;
+      position: relative;
+    }
+  }
   .user-item {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     padding: 40px 50px;
     position: relative;
-    max-width: 500px;
     border-radius: 20px;
     .comment {
       position: absolute;
       top: 0;
+      background-color: #abd373;
+      border-radius: 7px 0px 0px 160px;
       right: 0;
 
       img {
-        background-color: #abd373;
-        border-radius: 24px 0px 0px 33px;
         padding: 30px;
         color: #fff;
       }
@@ -175,6 +184,7 @@
   padding: 50px 0;
   .company-content {
     background-image: url(https://htmldemo.net/pronia/pronia/assets/images/brand/bg/1-1170x300.jpg);
+    @include bg-img-size;
     border-radius: 10px;
     padding: 90px;
 
@@ -235,25 +245,11 @@
 //Media Queries
 @media only screen and (max-width: 1200px) {
   #banners {
-    padding: 90px 0;
     .banner {
-      position: relative;
-      .banner-img {
-        img {
-          width: 100%;
-        }
-      }
       .banner-content {
-        position: absolute;
-        top: 50px;
-        left: 70px;
-
         .banner-title {
           font-size: 20px;
           margin: 20px 0;
-        }
-        a {
-          max-width: 100%;
         }
       }
     }
@@ -291,25 +287,11 @@
   }
 
   #banners {
-    padding: 90px 0;
     .banner {
-      position: relative;
-      .banner-img {
-        img {
-          width: 100%;
-        }
-      }
       .banner-content {
-        position: absolute;
-        top: 50px;
-        left: 70px;
-
         .banner-title {
           font-size: 25px;
           margin: 20px 0;
-        }
-        a {
-          max-width: 100%;
         }
       }
     }
@@ -395,11 +377,37 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        span {
+          font-size: 18px;
+        }
+        .banner-title:nth-child(even) {
+          text-align: center;
+          color: red;
+        }
+        .banner-title:nth-child(odd) {
+          text-align: center;
+          color: blue;
+        }
+      }
+    }
+  }
+}
 
+@media only screen and (max-width: 576px) {
+  #banners {
+    .banner {
+      .banner-content {
+        span {
+          font-size: 12px;
+        }
         .banner-title {
           text-align: center;
-          font-size: 30px;
+          font-size: 17px;
           margin: 10px 0;
+        }
+        a {
+          font-size: 10px;
+          padding: 8px 10px;
         }
       }
     }

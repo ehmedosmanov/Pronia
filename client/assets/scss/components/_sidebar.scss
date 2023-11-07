@@ -136,8 +136,8 @@
 
 .bascet-sidebar {
   color: #333;
-  width: 420px;
-  height: 100%;
+  max-width: 450px;
+  min-height: 100%;
   background: #fff;
   position: fixed;
   top: 0;
@@ -162,6 +162,7 @@
       border-bottom: 1px solid #4444442d;
       padding: 15px;
       display: flex;
+      justify-content: space-between;
       align-items: center;
       margin-bottom: 18px;
       .img-link {
@@ -200,6 +201,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+    .bascet-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-top: 50px;
     }
   }
   &.active {

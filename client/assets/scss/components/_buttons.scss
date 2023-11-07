@@ -17,13 +17,20 @@
   }
 }
 
+.dark-btn {
+  background-color: #000;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  padding: 8px 16px;
+  display: block;
+  border-radius: 5px;
+}
+
 .swiper-button-prev {
   display: none;
 }
 
 .swiper-button-next {
   display: none;
-}
-
-@media only screen and (max-width: 767px) {
 }

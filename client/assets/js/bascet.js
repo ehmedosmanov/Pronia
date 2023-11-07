@@ -1,8 +1,16 @@
 const tabsLink = document.querySelectorAll('.categories-item')
 const productsContainer = document.getElementById('products-container')
+const newProductsContainer = document.getElementById('new-products-container')
+const bascetContainer = document.querySelector('.bascet-products')
 const subTotal = document.querySelector('.amount')
 const bascetCountQuantity = document.querySelector('.count')
-let bascetArr = getLocalStorage('bascetArr') || []
+let bascetArr = []
+bascetArr = getLocalStorage('bascetArr')
+// if (getLocalStorage('bascetArr')) {
+//   bascetArr = getLocalStorage('bascetArr')
+// } else {
+//   bascetArr = []
+// }
 
 //Function save data to LocalStorage
 function setLocalStorage(key, data) {
@@ -11,7 +19,7 @@ function setLocalStorage(key, data) {
 
 //Function for get data from LocalStorage
 function getLocalStorage(key) {
-  return JSON.parse(localStorage.getItem(key)) || []
+  return JSON.parse(localStorage.getItem(key))
 }
 //Get Prodcuts Data from FakeApi
 async function getProducts() {
@@ -19,19 +27,21 @@ async function getProducts() {
     const response = await axios('http://localhost:3000/products')
     const data = response.data
     createProduct(data)
+    createNewProductsCard(data)
   } catch (error) {
     console.log(error)
   }
 }
-
-let localeLength =  getLocalStorage('bascetArr').length 
-bascetCountQuantity.textContent = localeLength
 
 //Create Product Card
 function createProductCard(product) {
   const card = document.createElement('div')
   card.classList.add('col-lg-3', 'col-md-6', 'col-sm-6', 'card-category')
   card.setAttribute('data-category', product.category)
+  if (product.isNew) {
+    card.classList.add('swiper-slide')
+  }
+
   card.innerHTML = `
   <div class="product-card">
     <div class="product-img_box">
@@ -47,14 +57,14 @@ function createProductCard(product) {
         <ul>
           <li><a href="#"><i class="fa-regular fa-eye"></i></a></li>
           <li><a href="#"><i class="fa-regular fa-heart"></i></a></li>
-          <li ><a href="#" class='add-bascet-btn'><i class="fa-solid fa-basket-shopping"></i></a></li>
+          <li class='add-bascet-btn'><a href="#" ><i class="fa-solid fa-basket-shopping"></i></a></li>
         </ul>
       </div>
     </div>
     <div class="product-content">
       <a href="#" class="product-name">${product.name}</a>
       <div class="price">
-        <span>${product.price}</span>
+        <span>$${product.price}</span>
       </div>
       <div class="rating">
          <ul>
@@ -67,23 +77,27 @@ function createProductCard(product) {
   const addToBasketBtn = card.querySelector('.add-bascet-btn')
   addToBasketBtn.addEventListener('click', e => {
     e.preventDefault()
-    if (bascetArr.find(x => x.id === product.id)) {
-      return
-    }
-    bascetArr.push({
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      image: product.images[0],
-      count: 1,
-    })
 
-  
+    // if (bascetArr.find(x => x.id === product.id)) {
+    //   return
+    // }
+
+    const findProduct = bascetArr.find(x => x.id === product.id)
+
+    if (findProduct) {
+      findProduct.count++
+    } else {
+      bascetArr.push({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: product.images[0],
+        count: 1
+      })
+    }
 
     setLocalStorage('bascetArr', bascetArr)
 
-    let localeLength =  getLocalStorage('bascetArr').length 
-    bascetCountQuantity.textContent = localeLength
     generateBascetCards()
   })
 
@@ -121,16 +135,24 @@ function getRating(stars) {
 //Create Product from Data
 function createProduct(data) {
   data.forEach(product => {
+    console.log(product)
     const productCard = createProductCard(product)
     productsContainer.append(productCard)
   })
 }
 
-
+function createNewProductsCard(data) {
+  data.forEach(product => {
+    console.log(product)
+    if (product.isNew) {
+      const newProductsCard = createProductCard(product)
+      newProductsContainer.append(newProductsCard)
+    }
+  })
+}
 
 //Create Bascet Cards
 function createBascetProduct(bascetArrLoc) {
-  const bascetContainer = document.querySelector('.bascet-products')
   bascetContainer.innerHTML = ''
   bascetArrLoc.forEach(product => {
     const productDiv = document.createElement('div')
@@ -146,10 +168,10 @@ function createBascetProduct(bascetArrLoc) {
       </a>
       <div class="bascet-product-content">
         <a href="#" class="product-item">${product.name}</a>
-        <span class="product-cost">${product.count} x ${product.price}</span>
-        <span class="total-cost">Total: ${totalPrice}</span>
+        <span class="product-cost">${product.count} x $${product.price}</span>
+        <span class="total-cost">Total: $${totalPrice}</span>
       </div>
-      <div class="bascet-counter ms-auto">
+      <div class="bascet-counter">
         <button class="count-btn" id="decreaseCount" onclick="decreaseCount(${product.id})">-</button>
         <span id="bascetCont">${product.count}</span>
         <button class="count-btn" id="incrementCount" onclick="increaseCount(${product.id})">+</button>
@@ -159,8 +181,6 @@ function createBascetProduct(bascetArrLoc) {
     removeBtn.addEventListener('click', e => {
       e.preventDefault()
       bascetArr = bascetArr.filter(x => x.id !== product.id)
-
-      bascetCountQuantity.textContent = parseInt(bascetCountQuantity.textContent) - 1
       setLocalStorage('bascetArr', bascetArr)
       generateBascetCards()
     })
@@ -169,10 +189,10 @@ function createBascetProduct(bascetArrLoc) {
   })
 }
 
-
 //Increase Price
 function increaseCount(productId) {
   const product = bascetArr.find(x => x.id === productId)
+  console.log(product)
   if (product) {
     product.count++
     setLocalStorage('bascetArr', bascetArr)
@@ -181,7 +201,6 @@ function increaseCount(productId) {
 }
 
 //Deacrease Price
-
 function decreaseCount(productId) {
   const product = bascetArr.find(x => x.id === productId)
   if (product) {
@@ -192,6 +211,15 @@ function decreaseCount(productId) {
     setLocalStorage('bascetArr', bascetArr)
     generateBascetCards()
   }
+}
+
+//Total Products Count Calculate Function
+function totalProductCountCalculate() {
+  let total = 0
+  bascetArr.forEach(element => {
+    total += element.count
+  })
+  bascetCountQuantity.textContent = total
 }
 
 //Calculate Total Price Products
@@ -206,6 +234,7 @@ function subTotalCalc(bascetArr) {
 //Generae Bascet
 function generateBascetCards() {
   createBascetProduct(bascetArr)
+  totalProductCountCalculate()
   subTotalCalc(bascetArr)
 }
 
