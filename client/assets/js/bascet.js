@@ -4,13 +4,12 @@ const newProductsContainer = document.getElementById('new-products-container')
 const bascetContainer = document.querySelector('.bascet-products')
 const subTotal = document.querySelector('.amount')
 const bascetCountQuantity = document.querySelector('.count')
-let bascetArr = []
-bascetArr = getLocalStorage('bascetArr')
-// if (getLocalStorage('bascetArr')) {
-//   bascetArr = getLocalStorage('bascetArr')
-// } else {
-//   bascetArr = []
-// }
+
+if (getLocalStorage('bascetArr')) {
+  bascetArr = getLocalStorage('bascetArr')
+} else {
+  bascetArr = []
+}
 
 //Function save data to LocalStorage
 function setLocalStorage(key, data) {
