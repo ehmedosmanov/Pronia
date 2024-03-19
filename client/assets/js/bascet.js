@@ -23,7 +23,7 @@ function getLocalStorage(key) {
 //Get Prodcuts Data from FakeApi
 async function getProducts() {
   try {
-    const response = await axios('http://localhost:3000/products')
+    const response = await axios('https://pronia-server-2.onrender.com/products')
     const data = response.data
     createProduct(data)
     createNewProductsCard(data)
@@ -82,7 +82,7 @@ function createProductCard(product) {
     // }
 
     const findProduct = bascetArr.find(x => x.id === product.id)
-
+    console.log(findProduct)
     if (findProduct) {
       findProduct.count++
     } else {
