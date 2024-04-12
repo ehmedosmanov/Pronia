@@ -23,10 +23,13 @@ function getLocalStorage(key) {
 //Get Prodcuts Data from FakeApi
 async function getProducts() {
   try {
-    const response = await axios('https://pronia-server-2.onrender.com/products')
+    const response = await axios(
+      'https://pronia-server-2.onrender.com/products'
+    )
     const data = response.data
     createProduct(data)
     createNewProductsCard(data)
+    generateBascetCards()
   } catch (error) {
     console.log(error)
   }
@@ -96,7 +99,7 @@ function createProductCard(product) {
     }
 
     setLocalStorage('bascetArr', bascetArr)
-
+    bascetSideBar.classList.add('active')
     generateBascetCards()
   })
 
@@ -109,7 +112,9 @@ tabsLink.forEach(tab => {
     e.preventDefault()
     const category = tab.getAttribute('data-category')
     console.log(category)
-    const cardsCategory = document.querySelectorAll('.card-category')
+    const cardsCategory = document.querySelectorAll(
+      '#products-container .card-category'
+    )
     cardsCategory.forEach(product => {
       //console.log(product)
       const productCategory = product.getAttribute('data-category')
@@ -183,7 +188,7 @@ function createBascetProduct(bascetArrLoc) {
       setLocalStorage('bascetArr', bascetArr)
       generateBascetCards()
     })
-
+    // bascetSideBar.classList.add('active')
     bascetContainer.append(productDiv)
   })
 }
@@ -204,8 +209,11 @@ function decreaseCount(productId) {
   const product = bascetArr.find(x => x.id === productId)
   if (product) {
     product.count--
-    if (product.count < 0) {
+    if (product.count < 1) {
       product.count = 0
+      bascetArr = bascetArr.filter(x => x.id !== product.id)
+      setLocalStorage('bascetArr', bascetArr)
+      generateBascetCards()
     }
     setLocalStorage('bascetArr', bascetArr)
     generateBascetCards()
@@ -232,9 +240,16 @@ function subTotalCalc(bascetArr) {
 
 //Generae Bascet
 function generateBascetCards() {
-  createBascetProduct(bascetArr)
-  totalProductCountCalculate()
-  subTotalCalc(bascetArr)
+  if (bascetArr.length === 0) {
+    bascetContainer.innerHTML =
+      '<p class="text-center py-4" style="padding: 10px 55px;">No Products in basket</p>'
+    subTotal.textContent = '0.00'
+    bascetCountQuantity.textContent = '0'
+  } else {
+    createBascetProduct(bascetArr)
+    totalProductCountCalculate()
+    subTotalCalc(bascetArr)
+  }
 }
 
 getProducts()
